@@ -1,0 +1,19 @@
+{
+    "id": "tlc_surcharge",
+    "type": "STAT_MOD",
+    "aiType": "CUSTOM",
+    "aiScript": "tlc.systems.TLCSurchargeAI",
+    "statsScript": "tlc.systems.TLCSurchargeStats",
+    "jitterUnderColor": [
+        110,
+        255,
+        180,
+        120
+    ],
+    "jitterUnderCopies": 8,
+    "jitterUnderMinRange": 0,
+    "jitterUnderRange": 6,
+    "jitterUnderRangeRadiusFraction": 0,
+    "useSound": "system_emp_emitter_activate",
+    "outOfUsesSound": "gun_out_of_ammo"
+}

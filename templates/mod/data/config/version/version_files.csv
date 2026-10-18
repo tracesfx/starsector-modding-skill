@@ -1,0 +1,2 @@
+version file
+# {{MOD_ID}}.version   <- uncomment once masterVersionFile is a real URL: an unhosted TODO URL makes LunaLib's and Nexerelin's version checkers log MalformedURLException at every launch

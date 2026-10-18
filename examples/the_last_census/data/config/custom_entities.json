@@ -1,0 +1,93 @@
+{
+    "tlc_tallyhouse": {
+        "defaultName": "The Tallyhouse",
+        "defaultRadius": 75,
+        "customDescriptionId": "tlc_tallyhouse",
+        "interactionImage": "graphics/illustrations/orbital.jpg",
+        "icon": "graphics/icons/tlc_tallyhouse_icon.png",
+        "iconWidth": 24,
+        "iconHeight": 24,
+        "sprite": "graphics/stations/tlc_tallyhouse.png",
+        "spriteWidth": 160,
+        "spriteHeight": 160,
+        "renderShadow": true,
+        "useLightColor": true,
+        "showInCampaign": true,
+        "showIconOnMap": true,
+        "showNameOnMap": false,
+        "scaleNameWithZoom": false,
+        "scaleIconWithZoom": true,
+        "tags": [
+            "station"
+        ],
+        "layers": [
+            "STATIONS"
+        ]
+    },
+    "tlc_courier_relay": {
+        "defaultName": "Courier Relay",
+        "defaultRadius": 45,
+        "nameInText": "courier relay",
+        "shortName": "relay",
+        "aOrAn": "a",
+        "isOrAre": "is",
+        "customDescriptionId": "tlc_courier_relay",
+        "interactionImage": "graphics/illustrations/space_wreckage.jpg",
+        "icon": "graphics/icons/tlc_relay_icon.png",
+        "iconWidth": 24,
+        "iconHeight": 24,
+        "sprite": "graphics/stations/tlc_courier_relay.png",
+        "spriteWidth": 96,
+        "spriteHeight": 96,
+        "renderShadow": true,
+        "useLightColor": true,
+        "showInCampaign": true,
+        "showIconOnMap": true,
+        "showNameOnMap": false,
+        "scaleNameWithZoom": false,
+        "scaleIconWithZoom": true,
+        "tags": [
+            "has_interaction_dialog",
+            "neutrino_high",
+            "not_random_mission_target"
+        ],
+        "layers": [
+            "STATIONS"
+        ],
+        "renderCircleIndicator": true,
+        "renderCircleIndicatorSelectionFlash": true
+    },
+    "tlc_dead_letter_office": {
+        "defaultName": "Dead Letter Office",
+        "defaultRadius": 40,
+        "nameInText": "derelict annex",
+        "shortName": "annex",
+        "aOrAn": "a",
+        "isOrAre": "is",
+        "customDescriptionId": "tlc_dead_letter_office",
+        "interactionImage": "graphics/illustrations/space_wreckage.jpg",
+        "icon": "graphics/icons/derelict.png",
+        "iconWidth": 32,
+        "iconHeight": 32,
+        "sprite": "graphics/stations/tlc_dead_letter_office.png",
+        "spriteWidth": 84,
+        "spriteHeight": 84,
+        "renderShadow": true,
+        "useLightColor": true,
+        "showInCampaign": true,
+        "showIconOnMap": true,
+        "showNameOnMap": false,
+        "scaleNameWithZoom": false,
+        "scaleIconWithZoom": true,
+        "tags": [
+            "has_interaction_dialog",
+            "neutrino",
+            "not_random_mission_target"
+        ],
+        "layers": [
+            "STATIONS"
+        ],
+        "renderCircleIndicator": true,
+        "renderCircleIndicatorSelectionFlash": true
+    }
+}

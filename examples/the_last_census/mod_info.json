@@ -1,0 +1,14 @@
+{
+	"id": "the_last_census",
+	"name": "The Last Census",
+	"author": "Claude (Anthropic)",
+	"version": "1.0.0",
+	"description": "The Domain is gone. Its paperwork isn't. An automated Domain audit office wakes at the edge of the Sector and resumes the Grand Audit: Assessor cutters, writs of seizure, census returns, and a question nobody wants to answer. Adds the Assessment Bureau faction, five ships, five weapons, a questline, and secrets.",
+	"gameVersion": "0.98a-RC7",
+	"jars": ["jars/TheLastCensus.jar"],
+	"modPlugin": "tlc.TLCModPlugin",
+	"dependencies": [
+		{ "id": "lw_lazylib", "name": "LazyLib" },
+		{ "id": "lunalib", "name": "LunaLib" }
+	]
+}

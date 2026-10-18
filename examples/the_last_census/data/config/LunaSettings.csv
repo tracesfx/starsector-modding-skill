@@ -1,0 +1,4 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+tlc_header,The Last Census,Header,The Last Census,,,,,
+tlc_enableAudits,Assessors audit your fleet,Boolean,true,,"When enabled, Bureau Assessor fleets will hail and audit your fleet when they meet you. Disabling this does not stop Assessors from flying their circuits, and it does not affect the questline.",,,
+tlc_maxAssessorFleets,Maximum Assessor circuits,Int,3,,How many Assessor circuits the Bureau keeps in flight at once. Set to 0 to stop new circuits from being dispatched. Existing circuits finish their routes normally.,0,6,

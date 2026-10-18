@@ -1,0 +1,224 @@
+{
+    "id": "tlc_bureau",
+    "displayName": "Assessment Bureau",
+    "displayNameWithArticle": "the Assessment Bureau",
+    "displayNameLong": "Domain Bureau of Colonial Assessment",
+    "displayNameLongWithArticle": "the Domain Bureau of Colonial Assessment",
+    "entityNamePrefix": "Bureau",
+    "personNamePrefix": "Bureau",
+    "personNamePrefixAOrAn": "a",
+    "displayNameIsOrAre": "is",
+    "logo": "graphics/factions/tlc_bureau_flag.png",
+    "crest": "graphics/factions/tlc_bureau_crest.png",
+    "shipNamePrefix": "DBV",
+    "shipNameSources": {
+        "TLC_BUREAU": 1
+    },
+    "names": {
+        "ai": 1
+    },
+    "color": [
+        150,
+        205,
+        160,
+        255
+    ],
+    "baseUIColor": [
+        150,
+        205,
+        160,
+        255
+    ],
+    "darkUIColor": [
+        38,
+        74,
+        62,
+        175
+    ],
+    "gridUIColor": [
+        96,
+        156,
+        124,
+        75
+    ],
+    "showInIntelTab": true,
+    "variantOverrides": {},
+    "hullFrequency": {
+        "tags": {},
+        "hulls": {}
+    },
+    "shipsWhenImporting": {
+        "tags": [
+            "tlc_bureau"
+        ],
+        "hulls": []
+    },
+    "knownShips": {
+        "tags": [
+            "tlc_bureau"
+        ],
+        "hulls": [
+            "buffalo",
+            "tarsus",
+            "dram",
+            "phaeton",
+            "mercury",
+            "nebula",
+            "atlas",
+            "colossus",
+            "crig",
+            "ox",
+            "hermes"
+        ]
+    },
+    "priorityShips": {
+        "tags": [
+            "tlc_bureau"
+        ],
+        "hulls": []
+    },
+    "knownFighters": {
+        "tags": [],
+        "fighters": []
+    },
+    "priorityFighters": {
+        "tags": [],
+        "fighters": []
+    },
+    "knownWeapons": {
+        "tags": [
+            "tlc_bureau",
+            "base_bp",
+            "midline_bp",
+            "hightech_bp",
+            "missile_bp"
+        ],
+        "weapons": [
+            "heavymauler",
+            "heavyblaster"
+        ]
+    },
+    "priorityWeapons": {
+        "tags": [
+            "tlc_bureau"
+        ],
+        "weapons": []
+    },
+    "knownHullMods": {
+        "tags": [
+            "standard",
+            "base_bp"
+        ],
+        "hullMods": []
+    },
+    "shipSellFrequency": {},
+    "weaponSellFrequency": {
+        "tlc_writ": 10,
+        "tlc_accrual": 10,
+        "tlc_injunction": 10,
+        "tlc_subpoena": 10,
+        "tlc_foreclosure": 6
+    },
+    "fighterSellFrequency": {},
+    "hullmodSellFrequency": {},
+    "factionDoctrine": {
+        "warships": 7,
+        "carriers": 0,
+        "phaseShips": 0,
+        "officerQuality": 1,
+        "shipQuality": 4,
+        "numShips": 2,
+        "shipSize": 3,
+        "aggression": 2,
+        "combatFreighterProbability": 0,
+        "combatFreighterCombatUseFraction": 0,
+        "combatFreighterCombatUseFractionWhenPriority": 0,
+        "autofitRandomizeProbability": 0.1,
+        "commanderSkillsShuffleProbability": 0,
+        "commanderSkills": [
+            "coordinated_maneuvers"
+        ]
+    },
+    "illegalCommodities": [
+        "drugs",
+        "organs"
+    ],
+    "music": {
+        "theme": "music_default_market_neutral",
+        "market_neutral": "music_default_market_neutral",
+        "market_hostile": "music_default_market_hostile",
+        "market_friendly": "music_default_market_friendly",
+        "encounter_neutral": "music_encounter_mysterious_non_aggressive",
+        "encounter_hostile": "music_encounter_mysterious",
+        "encounter_friendly": "music_default_encounter_friendly"
+    },
+    "portraits": {
+        "standard_male": [
+            "graphics/portraits/tlc_assessor.png",
+            "graphics/portraits/portrait_ai1b.png",
+            "graphics/portraits/portrait_ai2b.png",
+            "graphics/portraits/portrait_ai3b.png"
+        ],
+        "standard_female": [
+            "graphics/portraits/tlc_assessor.png",
+            "graphics/portraits/portrait_ai1b.png",
+            "graphics/portraits/portrait_ai2b.png",
+            "graphics/portraits/portrait_ai3b.png"
+        ]
+    },
+    "ranks": {
+        "ranks": {
+            "spaceCommander": {
+                "name": "Senior Assessor"
+            },
+            "spaceAdmiral": {
+                "name": "Inspector-General"
+            },
+            "factionLeader": {
+                "name": "Registrar"
+            }
+        },
+        "posts": {
+            "patrolCommander": {
+                "name": "Circuit Assessor"
+            },
+            "fleetCommander": {
+                "name": "Senior Assessor"
+            },
+            "baseCommander": {
+                "name": "Registrar"
+            },
+            "factionLeader": {
+                "name": "Registrar of Assize"
+            }
+        }
+    },
+    "custom": {
+        "offersCommissions": false,
+        "engagesInHostilities": false,
+        "buysAICores": false,
+        "postsNoBounties": true,
+        "caresAboutAtrocities": true,
+        "hostilityImpactOnGrowth": false,
+        "engageWhenEvenStrength": true,
+        "simulatorData": {
+            "showInSimulator": true,
+            "includeCivShipsWithFaction": false
+        }
+    },
+    "fleetTypeNames": {
+        "patrolSmall": "Audit Detachment",
+        "patrolMedium": "Assessment Circuit",
+        "patrolLarge": "Adjudication Flotilla",
+        "tlc_assessor": "Assessor Circuit",
+        "tlc_inspector": "Office of the Inspector-General",
+        "trade": "Requisition Convoy",
+        "tradeLiner": "Requisition Convoy",
+        "tradeSmuggler": "Courier",
+        "smallTrader": "Courier",
+        "foodRelief": "Relief Convoy",
+        "inspectionFleet": "Audit Detachment",
+        "taskForce": "Adjudication Flotilla",
+        "battlestation": "Tallyhouse Defense Array"
+    }
+}

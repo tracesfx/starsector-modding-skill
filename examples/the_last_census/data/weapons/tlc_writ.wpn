@@ -1,0 +1,50 @@
+{
+    "id": "tlc_writ",
+    "specClass": "beam",
+    "type": "ENERGY",
+    "size": "SMALL",
+    "displayArcRadius": 300,
+    "turretSprite": "graphics/weapons/tlc_writ_turret.png",
+    "hardpointSprite": "graphics/weapons/tlc_writ_hardpoint.png",
+    "turretOffsets": [
+        10,
+        0
+    ],
+    "turretAngleOffsets": [
+        0
+    ],
+    "hardpointOffsets": [
+        14,
+        0
+    ],
+    "hardpointAngleOffsets": [
+        0
+    ],
+    "fringeColor": [
+        255,
+        175,
+        70,
+        255
+    ],
+    "coreColor": [
+        255,
+        245,
+        215,
+        255
+    ],
+    "glowColor": [
+        255,
+        200,
+        120,
+        255
+    ],
+    "width": 8.0,
+    "textureType": "SMOOTH",
+    "textureScrollSpeed": 48.0,
+    "pixelsPerTexel": 5.0,
+    "collisionClass": "RAY",
+    "collisionClassByFighter": "RAY_FIGHTER",
+    "beamEffect": "tlc.combat.TLCWritBeamEffect",
+    "fireSoundOne": "laser_intro",
+    "fireSoundTwo": "laser_loop"
+}

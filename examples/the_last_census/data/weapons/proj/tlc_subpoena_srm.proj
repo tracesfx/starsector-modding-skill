@@ -1,0 +1,64 @@
+{
+    "id": "tlc_subpoena_srm",
+    "specClass": "missile",
+    "missileType": "MISSILE",
+    "sprite": "graphics/missiles/tlc_subpoena.png",
+    "size": [
+        8,
+        20
+    ],
+    "center": [
+        4,
+        10
+    ],
+    "collisionRadius": 12,
+    "collisionClass": "MISSILE_NO_FF",
+    "explosionColor": [
+        120,
+        255,
+        190,
+        255
+    ],
+    "explosionRadius": 90,
+    "engineSpec": {
+        "turnAcc": 420,
+        "turnRate": 140,
+        "acc": 600,
+        "dec": 300
+    },
+    "engineSlots": [
+        {
+            "id": "ES1",
+            "loc": [
+                -10,
+                0
+            ],
+            "style": "CUSTOM",
+            "styleSpec": {
+                "mode": "QUAD_STRIP",
+                "engineColor": [
+                    170,
+                    255,
+                    210,
+                    255
+                ],
+                "contrailDuration": 0.8,
+                "contrailWidthMult": 1,
+                "contrailWidthAddedFractionAtEnd": 2,
+                "contrailMinSeg": 5,
+                "contrailMaxSpeedMult": 0.5,
+                "contrailAngularVelocityMult": 0.5,
+                "contrailColor": [
+                    140,
+                    220,
+                    180,
+                    70
+                ],
+                "type": "SMOKE"
+            },
+            "width": 6.0,
+            "length": 22.0,
+            "angle": 180.0
+        }
+    ]
+}

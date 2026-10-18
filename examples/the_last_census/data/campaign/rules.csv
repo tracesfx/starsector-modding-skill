@@ -1,0 +1,132 @@
+id,trigger,conditions,script,text,options,notes
+tlc_auditBegin,BeginFleetEncounter,"!$hassle_didAlready
+!$isHostile
+$pursuePlayer_hassle score:50
+$hassleType == tlc_audit
+!$global.tlc_certified
+!$global.tlc_commissioner
+!$global.tlc_auditsEnded","$hassle_didAlready = true 0
+$hassleComplete = true
+MakeOtherFleetPreventDisengage hassle true
+unset $ignorePlayerCommRequests
+$tlc_auditConv = true 0
+HailPlayer",,,Assessor fleet hails the player (vanilla hassle framework)
+tlc_auditComms,OpenCommLink,$entity.tlc_auditConv score:100,"$entity.ignorePlayerCommRequests = true 7
+TLCAuditCMD greet
+FireAll TLC_AuditOptions",,,
+tlc_auditOptComply,TLC_AuditOptions,$tlc_canPay,,,1:tlc_auditComply:Transmit the manifest and pay the $tlc_feeStr levy,
+tlc_auditOptBroke,TLC_AuditOptions,!$tlc_canPay,,,1:tlc_auditComplyBroke:Transmit the manifest and explain that you cannot pay $tlc_feeStr,
+tlc_auditOptWarrant,TLC_AuditOptions,$global.tlc_enumerator,,,2:tlc_auditWarrant:Present your Provisional Enumerator's warrant,
+tlc_auditOptExempt,TLC_AuditOptions,!$global.tlc_enumerator,"SetStoryOption tlc_auditExempt general ""Talked your way out of a Bureau audit""",,"3:tlc_auditExempt:""This vessel is engaged in Domain business. Statute 14(c)."" (lie)",
+tlc_auditOptNoDomain,TLC_AuditOptions,!$tlc_saidNoDomain,,,"4:tlc_auditNoDomain:""There is no Domain.""",
+tlc_auditOptRefuse,TLC_AuditOptions,,,,5:tlc_auditRefuse:Refuse the audit,
+tlc_auditComplySel,DialogOptionSelected,$option == tlc_auditComply,"TLCAuditCMD comply
+MakeOtherFleetPreventDisengage hassle false",,cutCommLinkNoText:Cut the comm link,
+tlc_auditBrokeSel,DialogOptionSelected,$option == tlc_auditComplyBroke,"TLCAuditCMD complyBroke
+MakeOtherFleetPreventDisengage hassle false",,cutCommLinkNoText:Cut the comm link,
+tlc_auditWarrantSel,DialogOptionSelected,$option == tlc_auditWarrant,"TLCAuditCMD warrant
+MakeOtherFleetPreventDisengage hassle false",,cutCommLinkNoText:Cut the comm link,
+tlc_auditExemptSel,DialogOptionSelected,$option == tlc_auditExempt,"TLCAuditCMD exempt
+MakeOtherFleetPreventDisengage hassle false",,cutCommLinkNoText:Cut the comm link,
+tlc_auditNoDomainSel,DialogOptionSelected,$option == tlc_auditNoDomain,"$tlc_saidNoDomain = true 0
+TLCAuditCMD noDomain
+FireAll TLC_AuditOptions",,,three separate audits -> Inspector-General referral (secret)
+tlc_auditRefuseStrongSel,DialogOptionSelected,"$option == tlc_auditRefuse
+$entity.relativeStrength >= 0","TLCAuditCMD refuse
+MakeOtherFleetLowRepImpact tlc_audit true
+MakeOtherFleetHostile hassle true
+MakeOtherFleetAggressive hassle true",,cutCommLinkNoText:Cut the comm link and prepare to resist impoundment,
+tlc_auditRefuseWeakSel,DialogOptionSelected,"$option == tlc_auditRefuse
+$entity.relativeStrength < 0","TLCAuditCMD refuseWeak
+MakeOtherFleetPreventDisengage hassle false",,cutCommLinkNoText:Cut the comm link,
+tlc_regOpt,PopulateOptions,"$hasMarket
+$menuState == main
+$market.id == tlc_tallyhouse_market
+!$faction.isHostile",,,3:tlc_registrarOpen:Request an audience with the Registrar,
+tlc_regOpenSel,DialogOptionSelected,$option == tlc_registrarOpen,"TLCRegistrarCMD show
+FireAll TLC_RegistrarOptions",,,
+tlc_regOptAskAudit,TLC_RegistrarOptions,!$global.tlc_askedAudit,,,"1:tlc_regAskAudit:""What is the Grand Audit?""",
+tlc_regOptWarrant,TLC_RegistrarOptions,TLCCensusCMD stageIn broadcast report,,,"2:tlc_regAcceptWarrant:""I will serve as an enumerator.""",
+tlc_regOptReturnsStatus,TLC_RegistrarOptions,"TLCCensusCMD stageIn returns
+TLCCensusCMD returnsPending",,,"2:tlc_regReturnsStatus:""About the census returns...""",
+tlc_regOptSubmit,TLC_RegistrarOptions,"TLCCensusCMD stageIn returns
+TLCCensusCMD returnsDone",,,"1:tlc_regSubmitReturns:""I have filed the returns you asked for.""",
+tlc_regOptRelayStatus,TLC_RegistrarOptions,"TLCCensusCMD stageIn relay
+!$global.tlc_relayActive",,,"1:tlc_regRelayStatus:""About the courier relay...""",
+tlc_regOptTransmit,TLC_RegistrarOptions,"TLCCensusCMD stageIn relay
+$global.tlc_relayActive",,,"1:tlc_regTransmit:""The relay at Envoi is online.""",
+tlc_regOptLetter,TLC_RegistrarOptions,"$global.tlc_hasLetter
+!$global.tlc_letterDelivered",,,3:tlc_regGiveLetter:Give the Registrar the sealed letter from the Dead Letter Office,
+tlc_regOptAskDomain,TLC_RegistrarOptions,,,,"4:tlc_regAskDomain:""Do you know what happened to the Domain?""",
+tlc_regOptAfter,TLC_RegistrarOptions,TLCCensusCMD stageIn done,,,"1:tlc_regAfter:""How is the Bureau?""",
+tlc_regOptLeave,TLC_RegistrarOptions,,,,99:tlc_regLeave:End the audience,
+tlc_regAskAuditSel,DialogOptionSelected,$option == tlc_regAskAudit,"$global.tlc_askedAudit = true
+TLCRegistrarCMD askAudit
+FireAll TLC_RegistrarOptions",,,
+tlc_regAcceptWarrantSel,DialogOptionSelected,$option == tlc_regAcceptWarrant,"TLCRegistrarCMD acceptWarrant
+FireAll TLC_RegistrarOptions",,,
+tlc_regReturnsStatusSel,DialogOptionSelected,$option == tlc_regReturnsStatus,"TLCRegistrarCMD returnsStatus
+FireAll TLC_RegistrarOptions",,,
+tlc_regSubmitReturnsSel,DialogOptionSelected,$option == tlc_regSubmitReturns,"TLCRegistrarCMD submitReturns
+FireAll TLC_RegistrarOptions",,,
+tlc_regRelayStatusSel,DialogOptionSelected,$option == tlc_regRelayStatus,"TLCRegistrarCMD relayStatus
+FireAll TLC_RegistrarOptions",,,
+tlc_regTransmitSel,DialogOptionSelected,$option == tlc_regTransmit,"TLCRegistrarCMD transmit
+FireAll TLC_FinalOptions",,,
+tlc_regGiveLetterSel,DialogOptionSelected,$option == tlc_regGiveLetter,"TLCRegistrarCMD giveLetter
+FireAll TLC_RegistrarOptions",,,
+tlc_regAskDomainSel,DialogOptionSelected,$option == tlc_regAskDomain,"TLCRegistrarCMD askDomain
+FireAll TLC_RegistrarOptions",,,
+tlc_regAfterSel,DialogOptionSelected,$option == tlc_regAfter,"TLCRegistrarCMD after
+FireAll TLC_RegistrarOptions",,,
+tlc_regLeaveSel,DialogOptionSelected,$option == tlc_regLeave,"ShowDefaultVisual
+FireAll PopulateOptions",You take your leave of the Registrar.,,
+tlc_finOptNoDomain,TLC_FinalOptions,,,,"1:tlc_endNoDomain:""No. The Domain is gone.""",
+tlc_finOptKeepCounting,TLC_FinalOptions,,,,"2:tlc_endKeepCounting:""Someone will be. Keep counting.""",
+tlc_finOptRuled,TLC_FinalOptions,$global.tlc_igState == ruled,,,"0:tlc_endRuled:""Your Inspector-General already ruled on that.""",
+tlc_endNoDomainSel,DialogOptionSelected,$option == tlc_endNoDomain,TLCRegistrarCMD endArchived,,tlc_regLeave:Leave the audience chamber,
+tlc_endKeepCountingSel,DialogOptionSelected,$option == tlc_endKeepCounting,TLCRegistrarCMD endContinuing,,tlc_regLeave:Leave the audience chamber,
+tlc_endRuledSel,DialogOptionSelected,$option == tlc_endRuled,TLCRegistrarCMD endRuled,,tlc_regLeave:Leave the audience chamber,
+tlc_censusOpt,PopulateOptions,"$hasMarket
+$menuState == main
+$global.tlc_enumerator
+TLCCensusCMD canFile",,,4:tlc_censusFile:File a Bureau census return for this colony,
+tlc_censusFileSel,DialogOptionSelected,$option == tlc_censusFile,"TLCCensusCMD fileReturn
+FireAll PopulateOptions",,,
+tlc_relayOpen,OpenInteractionDialog,$customType == tlc_courier_relay score:1000,"ShowDefaultVisual
+TLCCensusCMD relayEnter
+FireAll TLC_RelayOptions",,,
+tlc_relayOptActivate,TLC_RelayOptions,"TLCCensusCMD stageIn relay
+!$global.tlc_relayActive
+TLCCensusCMD relayClear",,,1:tlc_relayActivate:Install the Registrar's transmission key,
+tlc_relayOptLeave,TLC_RelayOptions,,,,99:tlc_relayLeave:Leave,
+tlc_relayActivateSel,DialogOptionSelected,$option == tlc_relayActivate,TLCCensusCMD activateRelay,,tlc_relayLeave:Leave,
+tlc_relayLeaveSel,DialogOptionSelected,$option == tlc_relayLeave,DismissDialog,,,
+tlc_dloOpen,OpenInteractionDialog,$customType == tlc_dead_letter_office score:1000,"ShowDefaultVisual
+TLCCensusCMD dloEnter
+FireAll TLC_DLOOptions",,,
+tlc_dloOptRead,TLC_DLOOptions,,,,1:tlc_dloRead:Read an undelivered letter,
+tlc_dloOptSearch,TLC_DLOOptions,!$global.tlc_dloSearched,,,2:tlc_dloSearch:Search the rest of the annex,
+tlc_dloOptLeave,TLC_DLOOptions,,,,99:tlc_dloLeave:Leave,
+tlc_dloReadSel,DialogOptionSelected,$option == tlc_dloRead,"TLCCensusCMD dloRead
+FireAll TLC_DLOOptions",,,
+tlc_dloSearchSel,DialogOptionSelected,$option == tlc_dloSearch,"$global.tlc_dloSearched = true
+TLCCensusCMD dloSearch
+FireAll TLC_DLOOptions",,,
+tlc_dloLeaveSel,DialogOptionSelected,$option == tlc_dloLeave,DismissDialog,,,
+tlc_igBegin,BeginFleetEncounter,"$tlc_igFleet score:200
+!$isHostile
+TLCHearingCMD active","$tlc_igConv = true 0
+unset $ignorePlayerCommRequests
+MakeOtherFleetPreventDisengage tlc_hearing true
+HailPlayer",,,Inspector-General hails the player
+tlc_igComms,OpenCommLink,$entity.tlc_igConv score:200,"TLCHearingCMD greet
+FireAll TLC_HearingOptions",,,
+tlc_igOptSubmit,TLC_HearingOptions,,,,"1:tlc_igSubmit:""Proceed.""",
+tlc_igOptDefer,TLC_HearingOptions,,,,"2:tlc_igDefer:""Not today.""",
+tlc_igSubmitSel,DialogOptionSelected,$option == tlc_igSubmit,"TLCHearingCMD submit
+MakeOtherFleetNoRepImpact tlc_hearing true
+MakeOtherFleetHostile tlc_hearing true
+MakeOtherFleetAggressive tlc_hearing true",,cutCommLinkNoText:Cut the comm link and prepare for the hearing,
+tlc_igDeferSel,DialogOptionSelected,$option == tlc_igDefer,"TLCHearingCMD defer
+MakeOtherFleetPreventDisengage tlc_hearing false",,cutCommLinkNoText:Cut the comm link,

@@ -1,0 +1,27 @@
+{
+    "ruleCommandPackages": [
+        "tlc.rulecmd"
+    ],
+    "plugins": {
+        "tlcLedgerPlugin": "tlc.combat.TLCLedgerPlugin"
+    },
+    "designTypeColors": {
+        "Bureau": [
+            150,
+            205,
+            160,
+            255
+        ]
+    },
+    "graphics": {
+        "intel": {
+            "tlc_census": "graphics/icons/intel/tlc_census.png",
+            "tlc_inspector": "graphics/icons/intel/tlc_inspector.png"
+        },
+        "characters": {
+            "tlc_registrar": "graphics/portraits/tlc_registrar.png",
+            "tlc_inspector_general": "graphics/portraits/tlc_inspector_general.png",
+            "tlc_assessor": "graphics/portraits/tlc_assessor.png"
+        }
+    }
+}

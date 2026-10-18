@@ -1,0 +1,20 @@
+{
+    "combatSmallForSmallFleet": {
+        "tlc_tally_Standard": 10
+    },
+    "combatSmall": {
+        "tlc_tally_Standard": 10,
+        "tlc_tally_Writ": 6
+    },
+    "combatMedium": {
+        "tlc_assessor_Standard": 10,
+        "tlc_assessor_Support": 6
+    },
+    "combatLarge": {
+        "tlc_magistrate_Standard": 10,
+        "tlc_magistrate_Assault": 6
+    },
+    "combatCapital": {
+        "tlc_exchequer_Standard": 10
+    }
+}

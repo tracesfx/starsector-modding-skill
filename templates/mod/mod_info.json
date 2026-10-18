@@ -1,0 +1,11 @@
+{
+    "id": "{{MOD_ID}}",
+    "name": "{{MOD_NAME}}",
+    "author": "{{AUTHOR}}",
+    "version": "0.1.0",
+    "description": "{{DESCRIPTION}}",
+    "gameVersion": "{{GAME_VERSION}}",
+    "jars": ["jars/{{JAR_NAME}}.jar"],
+    "modPlugin": "{{PACKAGE}}.{{CLASS_PREFIX}}ModPlugin",
+    "dependencies": {{DEPENDENCIES_JSON}}
+}

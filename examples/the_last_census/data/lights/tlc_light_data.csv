@@ -1,0 +1,6 @@
+id,type,size,intensity,fadeout,color,offset,hit size,hit intensity,hit fadeout,hit color,flash size,flash intensity,flash fadeout,flash color,flash offset,chance,fighter dim
+tlc_accrual_shot,projectile,70,0.25,0.2,"[180,255,215]",,80,0.25,0.6,"[180,255,215]",90,0.2,0.15,"[160,240,200]",,1,TRUE
+tlc_injunction_shot,projectile,110,0.3,0.25,"[60,200,140]",,130,0.35,0.5,"[60,200,140]",90,0.25,0.15,"[140,255,200]",,1,TRUE
+tlc_foreclosure_shot,projectile,180,0.55,0.3,"[90,230,170]",,240,0.7,0.9,"[90,230,170]",200,0.4,0.3,"[150,255,205]",,1,TRUE
+tlc_subpoena_srm,projectile,120,0.3,0.75,"[140,255,200]",10,220,0.45,1,"[120,255,190]",,,,,,1,FALSE
+tlc_writ,beam,40,0.45,,"[255,190,90]",,110,0.25,,"[255,175,70]",60,0.25,,"[255,200,120]",,1,TRUE
